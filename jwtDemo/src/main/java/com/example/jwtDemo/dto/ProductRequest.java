@@ -7,10 +7,9 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-
 public record ProductRequest(
-		
-	    @NotBlank(message = "Product name is required")
+
+        @NotBlank(message = "Product name is required")
         String name,
 
         @NotBlank(message = "Description is required")
@@ -29,5 +28,4 @@ public record ProductRequest(
 
         String imageUrl
 ) {
-
 }

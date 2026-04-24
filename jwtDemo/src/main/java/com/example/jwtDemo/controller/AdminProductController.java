@@ -16,40 +16,39 @@ import com.example.jwtDemo.service.ProductService;
 @RestController
 @RequestMapping("/admin/products")
 public class AdminProductController {
-	
-	 private final ProductService productService;
 
-	    public AdminProductController(ProductService productService) {
-	        this.productService = productService;
-	    }
+    private final ProductService productService;
 
-	    @PostMapping
-	    public ResponseEntity<ProductResponse> addProduct(@Valid @RequestBody ProductRequest request) {
-	        ProductResponse response = productService.addProduct(request);
-	        return ResponseEntity.status(HttpStatus.CREATED).body(response);
-	    }
+    public AdminProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
-	    @PutMapping("/{id}")
-	    public ResponseEntity<ProductResponse> updateProduct(@PathVariable Long id,
-	                                                         @Valid @RequestBody ProductRequest request) {
-	        ProductResponse response = productService.updateProduct(id, request);
-	        return ResponseEntity.ok(response);
-	    }
+    @PostMapping
+    public ResponseEntity<ProductResponse> addProduct(@Valid @RequestBody ProductRequest request) {
+        ProductResponse response = productService.addProduct(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
 
-	    @DeleteMapping("/{id}")
-	    public ResponseEntity<Map<String, String>> deleteProduct(@PathVariable Long id) {
-	        String message = productService.deleteProduct(id);
-	        return ResponseEntity.ok(Map.of("message", message));
-	    }
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductResponse> updateProduct(@PathVariable Long id,
+                                                         @Valid @RequestBody ProductRequest request) {
+        ProductResponse response = productService.updateProduct(id, request);
+        return ResponseEntity.ok(response);
+    }
 
-	    @GetMapping("/{id}")
-	    public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
-	        return ResponseEntity.ok(productService.getProductById(id));
-	    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Map<String, String>> deleteProduct(@PathVariable Long id) {
+        String message = productService.deleteProduct(id);
+        return ResponseEntity.ok(Map.of("message", message));
+    }
 
-	    @GetMapping
-	    public ResponseEntity<List<ProductResponse>> getAllProducts() {
-	        return ResponseEntity.ok(productService.getAllProducts());
-	    }
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
+        return ResponseEntity.ok(productService.getProductById(id));
+    }
 
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> getAllProducts() {
+        return ResponseEntity.ok(productService.getAllProducts());
+    }
 }

@@ -13,7 +13,7 @@ import com.example.jwtDemo.repository.UserRepository;
 
 @Service
 public class AuthService {
-	
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
@@ -66,6 +66,4 @@ public class AuthService {
 
         return new AuthResponse(token, "Bearer", user.getUsername(), user.getRole());
     }
-
-
 }

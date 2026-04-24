@@ -5,6 +5,5 @@ public record AuthResponse(
         String tokenType,
         String username,
         String role
-        
 ) {
 }

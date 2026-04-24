@@ -95,7 +95,12 @@
 		    <artifactId>jjwt-jackson</artifactId> 
 		    <version>0.13.0</version>
 		    <scope>runtime</scope>
-		</dependency>	
+		</dependency>
+		<dependency>
+			<groupId>com.kodnest</groupId>
+			<artifactId>First</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

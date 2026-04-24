@@ -6,8 +6,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @GetMapping("/api/test")
-    public String test() {
-        return "API working without auth ✅";
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, public endpoint!";
+    }
+
+    @GetMapping("/customer/home")
+    public String customerHome() {
+        return "Welcome Customer!";
+    }
+
+    @GetMapping("/admin/home")
+    public String adminHome() {
+        return "Welcome Admin!";
     }
 }

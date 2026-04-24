@@ -15,8 +15,8 @@ import io.jsonwebtoken.security.Keys;
 
 @Service
 public class JwtService {
-	
-	@Value("${app.jwt.secret}")
+
+    @Value("${app.jwt.secret}")
     private String secret;
 
     @Value("${app.jwt.expiration-ms}")
@@ -59,5 +59,4 @@ public class JwtService {
         byte[] keyBytes = Decoders.BASE64.decode(secret);
         return Keys.hmacShaKeyFor(keyBytes);
     }
-
 }
